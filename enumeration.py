@@ -1,7 +1,7 @@
 import dns.resolver
 
 # Pick target domain and record type
-target = "x.com" # example domain
+target = "example.com" # example domain
 record_types = ["A", "AAAA", "CNAME", "MX", "NS", "TXT", "SOA"]
 
 resolver = dns.resolver.Resolver()
