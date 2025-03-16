@@ -1,0 +1,11 @@
+*.swp
+*~
+/tmp/
+*.bak
+*.tmp
+.vscode/
+*.deb
+*.rpm
+*.cache
+*.pid
+*.sock
