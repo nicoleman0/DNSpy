@@ -1,18 +1,20 @@
 import dns.resolver
 import logging
 
+# DNS errors are logged in file
 logging.basicConfig(filename='dns_query_errors.log', level=logging.ERROR,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - %(message)s') # timestamp, error level, message
 
 def query_dns(target, record_type, nameservers=None):
-    resolver = dns.resolver.Resolver()
+    """Performs DNS query using target, record_type, and optional custom nameservers."""
+    resolver = dns.resolver.Resolver() # Creates a DNS resolver object
     if nameservers:
         resolver.nameservers = nameservers
     try:
-        result = resolver.resolve(target, record_type)
+        result = resolver.resolve(target, record_type) # DNS query 
         print(f"{record_type} for {target}:")
         data_list = []
-        for data in result:
+        for data in result: # adds each record found to a list
             print(data)
             data_list.append(str(data))
         return data_list
