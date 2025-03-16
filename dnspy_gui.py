@@ -7,16 +7,17 @@ import threading
 class DNSEnumeratorGUI:
     def __init__(self, master):
         self.master = master
-        master.title("DNS Enumerator")
+        master.title("DNSpy")
 
-        self.target_label = tk.Label(master, text="Target Domain:")
+        self.target_label = tk.Label(
+            master, text="Target Domain:", font="Calibri 12 bold")
         self.target_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 
         self.target_entry = tk.Entry(master, width=30)
         self.target_entry.grid(row=0, column=1, padx=5, pady=5)
 
         self.enumerate_button = tk.Button(
-            master, text="Enumerate", command=self.start_enumeration)
+            master, text="Enumerate", font="Calibri 10 bold", command=self.start_enumeration)
         self.enumerate_button.grid(
             row=1, column=0, columnspan=2, padx=5, pady=5)
 
