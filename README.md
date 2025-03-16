@@ -12,8 +12,8 @@ This tool provides a flexible way to perform DNS enumeration on a target domain.
     *   `NoNameservers`: No name servers found for the domain.
     *   `Timeout`: Query timed out.
     *   Other exceptions.
-*   **Clear Output:** Presents the results in a readable format, clearly indicating the record type and the corresponding data.
-*   **Verbose Mode:** Option to enable verbose output for more detailed information.
+*   **Clear Output:** Presents the results in a readable format, indicating the record type and corresponding data.
+*   **Verbose Mode:** Option to enable verbose output.
 
 ## Files
 
@@ -25,6 +25,7 @@ This tool provides a flexible way to perform DNS enumeration on a target domain.
 1.  **Prerequisites:**
     *   Python 3.x
     *   `dnspython` library: Install with `pip install dnspython` (this is necessary)
+    *   Owner's permission to target their domain. 
 
 2.  **Running the Script:**
 
