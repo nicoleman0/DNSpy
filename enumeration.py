@@ -6,16 +6,20 @@ record_types = ["A", "AAAA", "CNAME", "MX", "NS", "TXT", "SOA"]
 
 resolver = dns.resolver.Resolver()
 
-for record in record_types:
+def query_dns(target, record_type):
     try:
-        result = resolver.resolve(target, record)
+        result = resolver.resolve(target, record_type)
+        print(f"{record_type} for {target}:")
+        for data in result:
+            print(data)
     except dns.resolver.NoAnswer:
-        continue
+        print(f"No answer for {record_type} record for {target}")
     except dns.resolver.NXDOMAIN:
-        continue
+        print(f"Domain {target} does not exist")
     except dns.resolver.NoNameservers:
-        continue
+        print(f"No name servers found for {target}")
+    except dns.exception.Timeout:
+        print(f"Timeout while querying {record_type} record for {target}")
 
-print(f"{record} for {target}:")
-for data in result:
-    print(data)
+for record in record_types:
+    query_dns(target, record)
