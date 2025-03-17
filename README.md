@@ -62,7 +62,7 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
     * **Verbose**: If you want verbose output, check the verbose box.
     * **Run**: Click the "Run" button to start the enumeration.
     *   The results will be displayed in the output area within the GUI.
-    * **Repeat**: You can repeat the procedure as many times as necessary.
+    *   Repeat as many times as you wish.
 
 3.  **Customization:**
 
