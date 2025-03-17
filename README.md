@@ -27,10 +27,6 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
 
 1.  **Prerequisites:**
 
-    *   Python 3.x
-    *   `dnspython` library: Install with `pip install dnspython` (this is necessary)
-    *   Owner's permission to target their domain. 
-
 *   **Python 3.x:** DNSpy is written in Python 3 and requires a Python 3 interpreter to be installed on your system. You can check if you have it installed by running `python3 --version` in your terminal. If not, then you can go and visit the official Python website.
 *   **`dnspython` Library:** DNSpy utilizes the `dnspython` library for DNS resolution. You can install it using pip:
     ```bash
@@ -67,7 +63,8 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
     * **Verbose**: If you want verbose output, check the verbose box.
     * **Run**: Click the "Run" button to start the enumeration.
     *   The results will be displayed in the output area within the GUI.
-    * **Repeat**: You can repeat the procedure as many times as necessary.
+    *   Repeat as many times as you wish.
+
 
 3.  **Customization:**
 
