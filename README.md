@@ -17,6 +17,7 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
 *   **Verbose Mode:** Option to enable verbose output, showing more detailed information about each query.
 * **User-Friendly**: Easy to use for users with or without experience with CLI.
 
+
 ## Files
 
 *   **`query.py`:** Contains the `query_dns` function responsible for querying the DNS server and handling responses.
@@ -63,6 +64,7 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
     * **Run**: Click the "Run" button to start the enumeration.
     *   The results will be displayed in the output area within the GUI.
     *   Repeat as many times as you wish.
+
 
 3.  **Customization:**
 
