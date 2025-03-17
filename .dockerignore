@@ -1,0 +1,40 @@
+# Dependencies
+**/__pycache__
+venv/
+.venv/
+env/
+.env/
+site-packages/
+
+# Debug and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+.coverage
+.vscode/
+.idea/
+
+# Package archives
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+
+# Git
+.git/
+
+# Build artifacts
+build/
+dist/
+__pycache__/
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Other
+node_modules/
+npm-debug.log
+yarn-error.log
