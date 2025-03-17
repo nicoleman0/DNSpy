@@ -5,7 +5,7 @@ from query import query_dns as query
 import threading
 
 
-class DNSEnumeratorGUI:
+class DNSpyGUI:
     def __init__(self, master):
         self.master = master
         master.title("DNSpy")
@@ -107,7 +107,7 @@ class DNSEnumeratorGUI:
 
 def main():
     root = tk.Tk()
-    gui = DNSEnumeratorGUI(root)
+    gui = DNSpyGUI(root)
     root.mainloop()
 
 
