@@ -17,6 +17,7 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
 *   **Verbose Mode:** Option to enable verbose output, showing more detailed information about each query.
 * **User-Friendly**: Easy to use for users with or without experience with CLI.
 
+
 ## Files
 
 *   **`query.py`:** Contains the `query_dns` function responsible for querying the DNS server and handling responses.
@@ -25,6 +26,10 @@ DNSpy provides a user-friendly graphical interface for performing DNS enumeratio
 ## Usage
 
 1.  **Prerequisites:**
+
+    *   Python 3.x
+    *   `dnspython` library: Install with `pip install dnspython` (this is necessary)
+    *   Owner's permission to target their domain. 
 
 *   **Python 3.x:** DNSpy is written in Python 3 and requires a Python 3 interpreter to be installed on your system. You can check if you have it installed by running `python3 --version` in your terminal. If not, then you can go and visit the official Python website.
 *   **`dnspython` Library:** DNSpy utilizes the `dnspython` library for DNS resolution. You can install it using pip:
