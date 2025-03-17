@@ -49,7 +49,7 @@ class DNSEnumeratorGUI:
                           4, padx=5, pady=2, sticky="w")
 
         self.enumerate_button = tk.Button(
-            master, text="Enumerate", font="Calibri 10 bold", command=self.start_enumeration
+            master, text="Run", font="Calibri 10 bold", command=self.start_enumeration
         )
         self.enumerate_button.grid(
             row=3, column=0, columnspan=2, padx=5, pady=5)
