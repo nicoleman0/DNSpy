@@ -11,28 +11,43 @@ class DNSpyGUI:
         self.master = master
         master.title("DNSpy")
 
+        # Configure theme and styles
+        style = ttk.Style()
+        style.theme_use('clam')  # Use modern theme
+
+        # Configure custom styles
+        style.configure('TButton', padding=6, font=('Segoe UI', 9))
+        style.configure('TLabel', font=('Segoe UI', 9))
+        style.configure('TCheckbutton', font=('Segoe UI', 9))
+        style.configure('TLabelframe', font=('Segoe UI', 9))
+        style.configure('TLabelframe.Label', font=('Segoe UI', 9, 'bold'))
+
         # Configure grid weights for better responsiveness
         master.grid_columnconfigure(1, weight=1)
         master.grid_rowconfigure(4, weight=1)
 
-        # Create main container frame
-        self.main_frame = ttk.Frame(master)
-        self.main_frame.grid(row=0, column=0, sticky="nsew", padx=5, pady=5)
+        # Create main container frame with padding
+        self.main_frame = ttk.Frame(master, padding="10")
+        self.main_frame.grid(row=0, column=0, sticky="nsew")
         self.main_frame.grid_columnconfigure(1, weight=1)
 
         # Target domain input
         self.target_label = ttk.Label(
-            self.main_frame, text="Target Domain:", font="Calibri 12 bold")
-        self.target_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+            self.main_frame, text="Target Domain:", font=('Segoe UI', 10, 'bold'))
+        self.target_label.grid(row=0, column=0, padx=5,
+                               pady=(0, 10), sticky="w")
 
-        self.target_entry = ttk.Entry(self.main_frame, width=30)
-        self.target_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+        self.target_entry = ttk.Entry(
+            self.main_frame, width=40, font=('Segoe UI', 10))
+        self.target_entry.grid(row=0, column=1, padx=5,
+                               pady=(0, 10), sticky="ew")
         self.target_entry.bind('<Return>', lambda e: self.start_enumeration())
 
         # Options Frame
-        self.options_frame = ttk.LabelFrame(self.main_frame, text="Options")
+        self.options_frame = ttk.LabelFrame(
+            self.main_frame, text="Options", padding=10)
         self.options_frame.grid(
-            row=1, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
+            row=1, column=0, columnspan=2, padx=5, pady=(0, 10), sticky="ew")
         self.options_frame.grid_columnconfigure(1, weight=1)
 
         # Verbose Output Checkbox
@@ -47,7 +62,7 @@ class DNSpyGUI:
 
         # Record Types Checkboxes
         self.record_types_label = ttk.Label(
-            self.options_frame, text="Record Types:", font="Calibri 10")
+            self.options_frame, text="Record Types:", font=('Segoe UI', 9, 'bold'))
         self.record_types_label.grid(
             row=1, column=0, padx=5, pady=5, sticky="w")
 
@@ -66,47 +81,53 @@ class DNSpyGUI:
                 text=record,
                 variable=self.record_vars[record],
             )
-            checkbox.grid(row=i // 4, column=i % 4, padx=5, pady=2, sticky="w")
+            checkbox.grid(row=i // 4, column=i %
+                          4, padx=10, pady=2, sticky="w")
             self.create_tooltip(checkbox, f"Query {record} records")
 
         # Buttons Frame
         self.buttons_frame = ttk.Frame(self.main_frame)
-        self.buttons_frame.grid(row=3, column=0, columnspan=2, pady=5)
+        self.buttons_frame.grid(row=3, column=0, columnspan=2, pady=10)
 
         self.enumerate_button = ttk.Button(
-            self.buttons_frame, text="Run (F5)", command=self.start_enumeration
+            self.buttons_frame, text="Run (F5)", command=self.start_enumeration,
+            style='TButton', width=15
         )
         self.enumerate_button.pack(side=tk.LEFT, padx=5)
 
         self.clear_button = ttk.Button(
-            self.buttons_frame, text="Clear", command=self.clear_output
+            self.buttons_frame, text="Clear", command=self.clear_output,
+            style='TButton', width=15
         )
         self.clear_button.pack(side=tk.LEFT, padx=5)
 
         # Progress bar
         self.progress_var = tk.DoubleVar()
         self.progress_bar = ttk.Progressbar(
-            self.main_frame, variable=self.progress_var, maximum=100
+            self.main_frame, variable=self.progress_var, maximum=100,
+            mode='determinate', style='TProgressbar'
         )
         self.progress_bar.grid(
-            row=4, column=0, columnspan=2, sticky="ew", padx=5, pady=5)
+            row=4, column=0, columnspan=2, sticky="ew", padx=5, pady=10)
 
         # Output text area
         self.output_text = scrolledtext.ScrolledText(
-            self.main_frame, wrap=tk.WORD, width=60, height=20
+            self.main_frame, wrap=tk.WORD, width=60, height=20,
+            font=('Consolas', 10), bg='#f8f9fa', fg='#212529'
         )
         self.output_text.grid(row=5, column=0, columnspan=2,
-                              padx=5, pady=5, sticky="nsew")
+                              padx=5, pady=(0, 10), sticky="nsew")
         self.output_text.config(state=tk.DISABLED)
 
         # Status bar
         self.status_var = tk.StringVar()
         self.status_var.set("Ready")
         self.status_bar = ttk.Label(
-            self.main_frame, textvariable=self.status_var, relief=tk.SUNKEN
+            self.main_frame, textvariable=self.status_var,
+            relief=tk.SUNKEN, padding=(5, 2)
         )
         self.status_bar.grid(row=6, column=0, columnspan=2,
-                             sticky="ew", padx=5, pady=2)
+                             sticky="ew", padx=5, pady=(0, 5))
 
         # Bind keyboard shortcuts
         self.master.bind('<F5>', lambda e: self.start_enumeration())
@@ -123,7 +144,8 @@ class DNSpyGUI:
             tooltip.wm_geometry(f"+{event.x_root+10}+{event.y_root+10}")
 
             label = ttk.Label(
-                tooltip, text=text, background="#ffffe0", relief=tk.SOLID, borderwidth=1
+                tooltip, text=text, background="#f8f9fa", relief=tk.SOLID, borderwidth=1,
+                font=('Segoe UI', 9), padding=5
             )
             label.pack()
 
