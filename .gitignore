@@ -9,3 +9,5 @@
 *.cache
 *.pid
 *.sock
+*_pyc
+*.pyc
