@@ -1,40 +1,63 @@
-# Dependencies
-**/__pycache__
-venv/
-.venv/
-env/
-.env/
-site-packages/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Debug and temporary files
+# Logs
 *.log
-*.tmp
+dns_query_errors.log
+
+# IDE
+.idea/
+.vscode/
 *.swp
 *.swo
-*.DS_Store
-.coverage
-.vscode/
-.idea/
+*~
 
-# Package archives
-*.tar.gz
-*.tgz
-*.zip
-*.rar
+# Docker
+.docker/
+.dockerignore
+Dockerfile
 
 # Git
 .git/
+.gitignore
+.gitattributes
 
-# Build artifacts
-build/
-dist/
-__pycache__/
+# Virtual Environment
+venv/
+env/
+ENV/
 
-# Docker
-Dockerfile
-.dockerignore
+# Testing
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
 
-# Other
-node_modules/
-npm-debug.log
-yarn-error.log
+# Misc
+.DS_Store
+*.bak
+*.tmp
+tmp/
