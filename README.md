@@ -20,8 +20,8 @@ pip install dnspython
 
 3. Clone this repository or download the source code:
 ```bash
-git clone <your-repository-url>
-cd <repository-name>
+git clone https://github.com/nicoleman0/DNSpy
+cd DNSpy
 ```
 
 4. You are now ready to use DNSpy.
